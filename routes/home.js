@@ -1,11 +1,6 @@
 module.exports = function (router) {
-
-    var homeRoute = router.route('/');
-
-    homeRoute.get(function (req, res) {
-        var connectionString = process.env.TOKEN;
-        res.json({ message: 'My connection string is ' + connectionString });
+    router.get('/', (req, res) => {
+        res.json({ message: 'Task management API', data: { users: '/api/users', tasks: '/api/tasks' } });
     });
-
     return router;
-}
+};
